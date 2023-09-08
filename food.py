@@ -17,25 +17,21 @@ class Recipe:
         return self.name
     def calories(self):
         sum = 0
-        for i in range(len(self.ingredients)):
-            sum = sum + self.ingredients[i].calories()
+        for ingredient in self.ingredients:
+            sum = sum + ingredient.calories()
         return sum
 
-woda = Food("woda", 0, 0, 0)
+woda = Food(name="woda", carbs=0, protein=0, fat=0)
 owoce = Food("jablko",20,1,0)
 owies = Food("platki owsiane",20,1,1)
 mleko = Food("mleko 3.2",10,2,3)
 
 owsianka = Recipe("owsianka",[woda,owoce,owies,mleko])
 sok = Recipe("sok jablkowy",[woda,owoce])
-mleko = Recipe("mleko", [mleko])
+napoj_mleko = Recipe("mleko", [mleko])
 
-print("receptura : " + str(owsianka))
-print("calorycznosc : ", owsianka.calories())
-
-print("receptura : " + str(sok))
-print("calorycznosc : ", sok.calories())
-
-print("receptura : " + str(mleko))
-print("calorycznosc : ", mleko.calories())
+recipes = [owsianka, sok, napoj_mleko]
+for recipe in recipes:
+    print("receptura : " + str(recipe))
+    print("calorycznosc : ", recipe.calories())
 

@@ -259,3 +259,6 @@ class Weapon:
     def __str__(self):
         return self.name
 ```
+
+## chapter 10
+
