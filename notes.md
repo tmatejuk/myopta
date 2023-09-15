@@ -261,4 +261,14 @@ class Weapon:
 ```
 
 ## chapter 10
+There are two primary styles:
+```
+import module
+#and
+from module import ClassName
+```
+
+The first style gives us access to all of the classes in the referenced module. However, we have to prefix any class from that module with the name of the module. For example, in the player’s inventory, we have to write items.Rock(), which means the Rock class in the items module. 
+
+The second style is typically used when you need just one or two classes from a module. In our game, the player module only has one class, so we could use either style. For readability, I prefer player = Player() over player = player.Player(), so I chose the second import style.
 
