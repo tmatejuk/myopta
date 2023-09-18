@@ -272,3 +272,38 @@ The first style gives us access to all of the classes in the referenced module. 
 
 The second style is typically used when you need just one or two classes from a module. In our game, the player module only has one class, so we could use either style. For readability, I prefer player = Player() over player = player.Player(), so I chose the second import style.
 
+
+## chapter 11
+
+In game programming, we flip the Y-axis so that the numbers increase downward instead of upward.
+```
+#(y,x)
+(0,0)──(1,0)──(2,0)
+  │      │     │
+(0,1)──(1,1)──(2,1)
+  │      │      │
+(0,2)──(1,2)──(2,2)
+```
+
+```
+╔═════╦═════╦═════╗
+║(0,0)║(1,0)║(2,0)║
+╠═════╬═════╬═════╣
+║(0,1)║(1,1)║(2,1)║
+╠═════╬═════╬═════╣
+║(0,2)║(1,2)║(2,2)║
+╚═════╩═════╩═════╝
+```
+
+The world_map[y][x] syntax may look confusing, but that’s because we’re working with a list of lists. The world_map[y] part selects the row of the map and adding [x] selects the specific cell in that row. 
+```
+def tile_at(x, y):
+    if x < 0 or y < 0:
+        return None
+    try:
+        return world_map[y][x]
+    except IndexError:
+        return None
+```
+
+
