@@ -307,3 +307,40 @@ def tile_at(x, y):
 ```
 
 
+## chapter 12
+
+In the REPL, 
+- isinstance(1, int) is True 
+- isinstance(1, str) is False
+because the number one is an int, but not a str (string).
+
+Similarly, isinstance(CrustyBread(), Consumable) is True because CrustyBread is a subclass of Consumable, but isinstance(CrustyBread(), Enemy) is False.
+
+```
+1 consumables = []
+2 for item in self.inventory:
+3 if isinstance(item, Consumable):
+4 consumables.append(item)
+```
+
+a list comprehension:
+```
+[what_we_want for thing in iterable if condition]
+```
+- what_we_want: What ends up in the new list. This is often just the thing in the iterable, but we can modify the thing if we want.
+- thing: The object in the iterable.
+- iterable: Something that can be passed to a for-each loop, such as a list, range, or tuple.
+- condition: (Optional.) A condition to limit what is added to the list.
+
+
+To help make this concrete, try these comprehensions in the REPL:
+- [a for a in range(5)]
+- [a*2 for a in range(5)]
+- [a for a in range(5) if a > 3]
+- [a*2 for a in range(5) if a > 3]
+
+It might behoove you to go through it line-by-line to make sure you
+understand what each line’s purpose is.
+Być może wypadałoby przejrzeć to wiersz po wierszu, aby się upewnić
+zrozumieć, jaki jest cel każdej linii.
+
